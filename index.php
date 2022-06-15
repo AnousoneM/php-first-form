@@ -32,15 +32,15 @@ require_once 'controller/form-controller.php';
                 </div>
 
                 <div class="my-2">
-                    <label for="firstname">Prénom</label><span class="ms-2 text-danger"></span>
+                    <label for="firstname">Prénom</label><span class="ms-2 text-danger"><?= isset($errors['firstname']) ? $errors['firstname'] : '' ?></span>
                     <br>
-                    <input type="text" id="firstname" name="firstname" placeholder="ex. Jean">
+                    <input type="text" id="firstname" name="firstname" placeholder="ex. Jean" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : '' ?>">
                 </div>
 
                 <div class="my-2">
-                    <label for="mail">Courriel</label>
+                    <label for="mail">Courriel</label><span class="ms-2 text-danger"><?= isset($errors['mail']) ? $errors['mail'] : '' ?></span>
                     <br>
-                    <input type="mail" id="mail" name="mail" placeholder="ex. jean.durant@mail.fr">
+                    <input type="mail" id="mail" name="mail" placeholder="ex. jean.durant@mail.fr" value="<?= isset($_POST['mail']) ? $_POST['mail'] : '' ?>">
                 </div>
 
                 <div class="my-2">

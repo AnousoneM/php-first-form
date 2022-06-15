@@ -1,6 +1,6 @@
 <?php
 
-// 1 - Je lance mes tests uniquement lors de la validation du formulaire de type POST
+// 1 - je lance mes tests uniquement lors de la validation du formulaire de type POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // je déclare un tableau d'erreurs vide pour stocker toutes mes erreurs
@@ -24,6 +24,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else if (!preg_match($regexName, $_POST['lastname'])) {
             // si mauvais format, message d'erreur
             $errors['lastname'] = "Format invalide";
+        }
+    }
+
+    ////////////////////////////////
+    // Contrôle du champ firstname //
+    ////////////////////////////////
+
+    if (isset($_POST['firstname'])) {
+        if ($_POST['firstname'] == '') {
+            $errors['firstname'] = "Champ obligatoire";
+        } else if (!preg_match($regexName, $_POST['firstname'])) {
+            $errors['firstname'] = "Format invalide";
+        }
+    }
+
+    ////////////////////////////////
+    // Contrôle du champ email //
+    ////////////////////////////////
+
+    if (isset($_POST['mail'])) {
+        if ($_POST['mail'] == '') {
+            $errors['mail'] = "Champ obligatoire";
+            // on contrôle le format du mail à l'aide d'un filtar_var et filter_validate_email
+        } else if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
+            $errors['mail'] = "Format mail invalide";
         }
     }
 }
