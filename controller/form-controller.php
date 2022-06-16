@@ -2,6 +2,9 @@
 
 var_dump($_POST);
 
+// on définit la variable $showForm à true
+$showForm =true;
+
 // 1 - je lance mes tests uniquement lors de la validation du formulaire de type POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -87,8 +90,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['cgu'] = "Veuillez valider les CGU";
     }
 
+    // nous comptons les élements dans notre tableau d'erreurs, si il est vide alors nous effectuons une action
     if(count($errors) == 0){
-        header('Location: user.php');
+        // nous passons la variable $showForm à false : nous allons cacher le formulaire
+        $showForm = false;
     }
 
 
