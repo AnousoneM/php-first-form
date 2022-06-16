@@ -1,4 +1,5 @@
 <?php
+// Nous faisons appel au controller form-controller qui va avoir toute la logique
 require_once 'controller/form-controller.php';
 ?>
 
@@ -92,6 +93,7 @@ require_once 'controller/form-controller.php';
         <div class="text-center">
             <!-- ICI les information de la page précédente :
             Nom - Prénom - Mail - Formule -->
+
         </div>
 
         <p class="text-center">Nous vous recontacterons dans les plus bref délais</p>
