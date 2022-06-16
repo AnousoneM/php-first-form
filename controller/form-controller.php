@@ -72,10 +72,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     ////////////////////////////////////////////////////////
-    // Contrôle du champ formula //
+    // Contrôle du champ formula // SELECT
     ////////////////////////////////////////////////////////
 
     if (!isset($_POST['formula'])) {
         $errors['formula'] = "Veuillez sélectionner une formule";
     }
+
+    ////////////////////////////////////////////////////////
+    // Contrôle du champ cgu // CHECKBOX
+    ////////////////////////////////////////////////////////
+
+    if (!isset($_POST['cgu'])) {
+        $errors['cgu'] = "Veuillez valider les CGU";
+    }
+
+    if(count($errors) == 0){
+        header('Location: user.php');
+    }
+
+
+
 }

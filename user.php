@@ -16,10 +16,14 @@ var_dump($_POST);
 
 <body>
 
+    <h1 class="text-center mb-4 p-5 bg-dark text-white">PAGE USER</h1>
+
     <div class="text-center">
-
-
+        <!-- Information de la page précédente :
+    Nom - Prénom - Mail - Formule -->
     </div>
+
+    <p class="text-center">Nous vous recontacterons dans les plus bref délais</p>
 
     <div class="row text-center">
         <a href="index.php" class="btn btn-dark">Retour</a>

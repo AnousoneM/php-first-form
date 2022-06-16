@@ -62,13 +62,14 @@ require_once 'controller/form-controller.php';
                         <option selected disabled>Veuillez sélectionner une formule</option>
                         <!-- Mise en place d'une ternaire pour conserver le selected -->
                         <!-- Nous vérifions si le $_POST formula est set et s'il est égale à value -->
-                        <option value="1" <?= isset($_POST['formula']) && $_POST['formula'] == 1 ? 'selected' : '' ?> >Etudiant</option>
-                        <option value="2" <?= isset($_POST['formula']) && $_POST['formula'] == 2 ? 'selected' : '' ?> >Normal</option>
-                        <option value="3" <?= isset($_POST['formula']) && $_POST['formula'] == 3 ? 'selected' : '' ?> >Premium</option>
+                        <option value="1" <?= isset($_POST['formula']) && $_POST['formula'] == 1 ? 'selected' : '' ?>>Etudiant</option>
+                        <option value="2" <?= isset($_POST['formula']) && $_POST['formula'] == 2 ? 'selected' : '' ?>>Normal</option>
+                        <option value="3" <?= isset($_POST['formula']) && $_POST['formula'] == 3 ? 'selected' : '' ?>>Premium</option>
                     </select>
                 </div>
 
                 <div class="mt-4">
+                    <span class="d-block text-danger"><?= isset($errors['cgu']) ? $errors['cgu'] : '' ?></span>
                     <input type="checkbox" id="cgu" name="cgu">
                     <label for="cgu">J'ai lu et j'accepte les CGU</label>
                 </div>
