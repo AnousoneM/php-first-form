@@ -21,7 +21,7 @@ require_once 'controller/form-controller.php';
     <form action="" method="POST">
 
         <div class="row justify-content-center">
-            <div class="col-3 border border-secondary rounded shadow p-4">
+            <div class="col-4 border border-secondary rounded shadow p-4">
 
                 <div class="my-2">
                     <!-- Nous effectuons une ternaire pour afficher le message d'erreur dans le span -->
@@ -44,25 +44,27 @@ require_once 'controller/form-controller.php';
                 </div>
 
                 <div class="my-2">
-                    <label for="password">Mot de passe</label>
+                    <label for="password">Mot de passe</label><span class="ms-2 text-danger"><?= isset($errors['password']) ? $errors['password'] : '' ?></span>
                     <br>
                     <input type="password" id="password" name="password">
                 </div>
 
                 <div class="my-2">
-                    <label for="confirmPassword">Confirmation du mot de passe</label>
+                    <label for="confirmPassword">Confirmation du mot de passe</label><span class="ms-2 text-danger"><?= isset($errors['confirmPassword']) ? $errors['confirmPassword'] : '' ?></span>
                     <br>
                     <input type="password" id="confirmPassword" name="confirmPassword">
                 </div>
 
                 <div class="my-2">
-                    <label for="formula">Abonnement</label>
+                    <label for="formula">Abonnement</label><span class="ms-2 text-danger"><?= isset($errors['formula']) ? $errors['formula'] : '' ?></span>
                     <br>
                     <select name="formula" id="formula">
                         <option selected disabled>Veuillez sélectionner une formule</option>
-                        <option value="1">Etudiant</option>
-                        <option value="2">Normal</option>
-                        <option value="3">Premium</option>
+                        <!-- Mise en place d'une ternaire pour conserver le selected -->
+                        <!-- Nous vérifions si le $_POST formula est set et s'il est égale à value -->
+                        <option value="1" <?= isset($_POST['formula']) && $_POST['formula'] == 1 ? 'selected' : '' ?> >Etudiant</option>
+                        <option value="2" <?= isset($_POST['formula']) && $_POST['formula'] == 2 ? 'selected' : '' ?> >Normal</option>
+                        <option value="3" <?= isset($_POST['formula']) && $_POST['formula'] == 3 ? 'selected' : '' ?> >Premium</option>
                     </select>
                 </div>
 

@@ -1,5 +1,7 @@
 <?php
 
+var_dump($_POST);
+
 // 1 - je lance mes tests uniquement lors de la validation du formulaire de type POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -50,5 +52,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
             $errors['mail'] = "Format mail invalide";
         }
+    }
+
+    ////////////////////////////////////////////////////////
+    // Contrôle des champs : password et confirmpassword  //
+    ////////////////////////////////////////////////////////
+
+    if (isset($_POST['password'])) {
+        // si password est vide
+        if ($_POST['password'] == '') {
+            $errors['password'] = "Champ obligatoire";
+            // si confirmPassword est vide et que password n'est pas vide
+        } else if ($_POST['confirmPassword'] == '' && $_POST['password'] != '') {
+            $errors['confirmPassword'] = "Champ obligatoire";
+            // si les mots de passe sont différents
+        } else if ($_POST['confirmPassword'] != $_POST['password']) {
+            $errors['password'] = "Les mots de passe sont différents";
+        }
+    }
+
+    ////////////////////////////////////////////////////////
+    // Contrôle du champ formula //
+    ////////////////////////////////////////////////////////
+
+    if (!isset($_POST['formula'])) {
+        $errors['formula'] = "Veuillez sélectionner une formule";
     }
 }
