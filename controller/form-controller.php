@@ -2,7 +2,7 @@
 
 var_dump($_POST);
 
-// on définit la variable $showForm à true
+// on définit la variable $showForm au chargement de la page
 $showForm =true;
 
 // 1 - je lance mes tests uniquement lors de la validation du formulaire de type POST
@@ -32,9 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    ////////////////////////////////
+    /////////////////////////////////
     // Contrôle du champ firstname //
-    ////////////////////////////////
+    /////////////////////////////////
 
     if (isset($_POST['firstname'])) {
         if ($_POST['firstname'] == '') {
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     ////////////////////////////////
-    // Contrôle du champ email //
+    // Contrôle du champ email /////
     ////////////////////////////////
 
     if (isset($_POST['mail'])) {
@@ -97,5 +97,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
 
-
 }
+
+// nous allons faire une fonction permettant de rendre les données safe
+// - trim : pour enlever les espaces avant / après
+// - htmlspecialchars : echapper les caractère html pour ne pas être interprété par le navigateur
+function safeInput($input){
+    $safeInput = trim($input);
+    $safeInput = htmlspecialchars($safeInput);
+    return $safeInput;
+}
+
+// création d'un tableau associatif pour afficher les formules en fonction de l'index
+$arrayFormula = [
+    1 => 'Etudiant',
+    2 => 'Normal',
+    3 => 'Premium'
+];
+
+

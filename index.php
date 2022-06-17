@@ -94,6 +94,14 @@ require_once 'controller/form-controller.php';
             <!-- ICI les information de la page précédente :
             Nom - Prénom - Mail - Formule -->
 
+            <ul>
+                <li>Nom : <?= safeInput($_POST['lastname'])?></li>
+                <li>Prénom : <?= safeInput($_POST['firstname'])?></li>
+                <li>Courriel : <?= safeInput($_POST['mail'])?></li>
+                <!-- attention de bien parcourir le tableau à l'aide de l'index recupéré -->
+                <li>Formule : <?= $arrayFormula[safeInput($_POST['formula'])]?></li>
+            </ul>
+
         </div>
 
         <p class="text-center">Nous vous recontacterons dans les plus bref délais</p>
@@ -103,13 +111,6 @@ require_once 'controller/form-controller.php';
         </div>
 
     <?php } ?>
-
-
-
-
-
-
-
 
 </body>
 
