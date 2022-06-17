@@ -3,7 +3,7 @@
 var_dump($_POST);
 
 // on définit la variable $showForm au chargement de la page
-$showForm =true;
+$showForm = true;
 
 // 1 - je lance mes tests uniquement lors de la validation du formulaire de type POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -91,18 +91,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // nous comptons les élements dans notre tableau d'erreurs, si il est vide alors nous effectuons une action
-    if(count($errors) == 0){
+    if (count($errors) == 0) {
         // nous passons la variable $showForm à false : nous allons cacher le formulaire
         $showForm = false;
     }
-
-
 }
 
 // nous allons faire une fonction permettant de rendre les données safe
 // - trim : pour enlever les espaces avant / après
 // - htmlspecialchars : echapper les caractère html pour ne pas être interprété par le navigateur
-function safeInput($input){
+function makeSafeInput($input)
+{
     $safeInput = trim($input);
     $safeInput = htmlspecialchars($safeInput);
     return $safeInput;
@@ -114,5 +113,3 @@ $arrayFormula = [
     2 => 'Normal',
     3 => 'Premium'
 ];
-
-

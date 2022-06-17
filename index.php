@@ -95,11 +95,11 @@ require_once 'controller/form-controller.php';
             Nom - Prénom - Mail - Formule -->
 
             <ul>
-                <li>Nom : <?= safeInput($_POST['lastname'])?></li>
-                <li>Prénom : <?= safeInput($_POST['firstname'])?></li>
-                <li>Courriel : <?= safeInput($_POST['mail'])?></li>
+                <li>Nom : <?= makeSafeInput($_POST['lastname'])?></li>
+                <li>Prénom : <?= makeSafeInput($_POST['firstname'])?></li>
+                <li>Courriel : <?= makeSafeInput($_POST['mail'])?></li>
                 <!-- attention de bien parcourir le tableau à l'aide de l'index recupéré -->
-                <li>Formule : <?= $arrayFormula[safeInput($_POST['formula'])]?></li>
+                <li>Formule : <?= $arrayFormula[makeSafeInput($_POST['formula'])]?></li>
             </ul>
 
         </div>
